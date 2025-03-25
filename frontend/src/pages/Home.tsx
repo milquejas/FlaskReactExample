@@ -7,7 +7,7 @@ const Home = () => {
       <Typography variant="h3" gutterBottom>
         Welcome to Our App
       </Typography>
-      <Typography variant="h6" paragraph>
+      <Typography variant="h6" color="textSecondary">
         This is a simple app where you can manage users, view and create
         accounts. You can fetch a list of all users, as well as register new
         users.

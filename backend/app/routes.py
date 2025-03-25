@@ -19,7 +19,17 @@ def get_users():
 @routes.route("/users", methods=["POST"])
 def create_user():
     data = request.get_json()
-    new_user = User(username=data["username"], email=data["email"])
+    new_user = User(
+        username=data["username"],
+        email=data["email"],
+        bio=data["bio"],
+        birthdate=data["birthdate"],
+        city=data["city"],
+        country=data["country"],
+        hobbies=data["hobbies"],
+        goals=data["goals"],
+        image=data["image"],
+    )
     db.session.add(new_user)
     db.session.commit()
 
