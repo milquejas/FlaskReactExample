@@ -10,7 +10,7 @@ const Home = () => {
 
   useEffect(() => {
     // API-pyyntö backendin Flask-API:iin
-    api.get("/")
+    api.get("/users")
       .then((res) => setMessage(res.data.message))
       .catch((err) => setMessage(err.message));
   }, []);  // Tyhjä riippuvuuslista, jotta pyyntö tehdään vain kerran, kun komponentti ladataan
