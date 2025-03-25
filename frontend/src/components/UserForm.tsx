@@ -16,11 +16,13 @@ const UserForm = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    const formattedDate = new Date(birthdate).toISOString();
+
     const user: User = {
       username,
       email,
       bio,
-      birthdate,
+      birthdate: formattedDate,
       city,
       country,
       hobbies,
@@ -81,7 +83,7 @@ const UserForm = () => {
           style={{ width: "100%", padding: "8px", marginBottom: "10px" }}
         />
         <input
-          type="text"
+          type="date"
           placeholder="Birthdate"
           value={birthdate}
           onChange={(e) => setBirthdate(e.target.value)}

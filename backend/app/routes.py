@@ -1,5 +1,6 @@
 # app/routes.py
 from flask import Blueprint, jsonify, request
+from datetime import datetime
 from .models import User
 from .extensions import db
 
@@ -19,11 +20,13 @@ def get_users():
 @routes.route("/users", methods=["POST"])
 def create_user():
     data = request.get_json()
+    birthdate = datetime.fromisoformat(data["birthdate"])
+
     new_user = User(
         username=data["username"],
         email=data["email"],
         bio=data["bio"],
-        birthdate=data["birthdate"],
+        birthdate=birthdate,
         city=data["city"],
         country=data["country"],
         hobbies=data["hobbies"],
